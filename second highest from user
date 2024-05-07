@@ -1,0 +1,22 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SecondHighestFromUser {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the numbers separated by spaces: ");
+        String input = scanner.nextLine();
+        String[] numbersString = input.split(" ");
+
+        int[] numbers = Arrays.stream(numbersString).mapToInt(Integer::parseInt).toArray();
+        
+        Arrays.sort(numbers);
+        
+        int secondHighest = numbers[numbers.length - 2];
+        
+        System.out.println("The second highest number is: " + secondHighest);
+
+        scanner.close();
+    }
+}
