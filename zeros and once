@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class zeroandonce {
+    public static void segregateZeroesAndOnes(int[] arr) {
+        int left = 0;
+        int right = arr.length - 1;
+        
+        while (left < right) {
+            while (arr[left] == 0 && left < right) {
+                left++;
+            }
+            while (arr[right] == 1 && left < right) {
+                right--;
+            }
+            if (left < right) {
+                arr[left] = 0;
+                arr[right] = 1;
+                left++;
+                right--;
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        
+        int[] arr = new int[n];
+        
+        System.out.println("Enter the elements (0's and 1's):");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        
+        System.out.println("Original array: " + java.util.Arrays.toString(arr));
+        
+        segregateZeroesAndOnes(arr);
+        
+        System.out.println("Array after segregation: " + java.util.Arrays.toString(arr));
+        
+        scanner.close();
+    }
+}
